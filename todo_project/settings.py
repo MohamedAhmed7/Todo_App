@@ -25,7 +25,7 @@ SECRET_KEY = 'i%8ix^vn_0j#kbwqux0l^#)ffx-h*!t1h=g5i%dp151-)tgz(&'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['simpledailytodoapp.herokuapp.com']
+ALLOWED_HOSTS = ['simpledailytodoapp.herokuapp.com', 'localhost']
 
 
 # Application definition
