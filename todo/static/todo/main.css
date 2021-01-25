@@ -1,0 +1,65 @@
+body {
+  background: #ffffff;
+  color: #333333;
+  margin-top: 5rem;
+}
+i{
+    float:right;
+    color:#2ECC71;
+}
+#wrapper{
+    margin-top: 50px;
+    max-width:700px;
+    background: #fafafa ;
+    padding: 35px;
+    border-radius: 5px;
+
+}
+h1, h2, h3, h4, h5, h6 {
+  color: #444444;
+}
+
+ul {
+  margin: 10px;
+}
+
+.bg-steel {
+  background-color: #18a2b8;
+  text-align: center;
+}
+
+.site-header .navbar-nav .nav-link {
+  color: #cbd5db;
+}
+
+.site-header .navbar-nav .nav-link:hover {
+  color: #ffffff;
+}
+
+.site-header .navbar-nav .nav-link.active {
+  font-weight: 500;
+}
+
+.btn-group{
+    text-align:center;
+    margin:5px;
+}
+.article-title {
+  color: #444444;
+}
+
+.list-group-item{
+    background: #ffffff ;
+
+}
+.todo-notcompleted{
+    background:#FDEDEC;
+}
+.todo-completed{
+    background: #EAFAF1 ;
+    text-decoration: line-through;
+}
+
+.account-heading {
+  font-size: 2.5rem;
+}

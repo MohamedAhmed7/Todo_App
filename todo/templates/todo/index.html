@@ -1,0 +1,61 @@
+{% extends "todo/base.html" %}
+{% block content %}
+		{% if user.is_authenticated %}
+			<div class="container-fluid justify-content-center" id="wrapper">
+				<h2>WHAT DO YOU WANT TO DO TODAY?</h2>
+				<form action="{% url 'add_todo' %}" method="POST" role="form">
+					{% csrf_token %}
+					<div class="form-group">
+						<div class="input-group">
+							{{ form.text }}
+						  <span class="input-group-btn">
+							  <button type="submit" class="btn btn-success" id="add-btn">ADD</button>
+						  </span>
+						</div>
+					</div>
+				</form>
+
+				<div class="justify-content-center">
+
+						<div class="btn-group">
+							<a href="{% url 'delcompleted' %}">
+								<button type="button" class="btn btn-warning">
+									<i class="glyphicon glyphicon-trash"></i> DELETE COMPLETED
+								</button>
+							</a>
+						</div>
+						<div class="btn-group">
+							<a href="{% url 'delete_all' %}">
+								<button type="button" class="btn btn-danger">
+									<i class="glyphicon glyphicon-trash"></i> DELETE ALL
+								</button>
+							</a>
+						</div>
+
+				</div>
+
+				<ul class="list-group t20">
+				{% for todo in todo_list %}
+					{% if todo.complete %}
+						<li class="todo-completed list-group-item">{{ todo }}<i class="fa fa-check-circle"></i></li>
+					{% else %}
+						<a href="{% url 'complete' todo.id %}" class="list-group-item todo-notcompleted">{{ todo }}</a>
+					{% endif %}
+				{% endfor %}
+
+				</ul>
+			</div>
+		{% else %}
+			<div class="container-fluid justify-content-center" style="text-align: center;" id="wrapper">
+				<h2>* ToDo App *</h2>
+				<h4>Daily To-Do List that helps you complete your daily tasks!</h4>
+				<h5>Simple and Easy to Use</h5>
+				<p>wanna try <a href="{% url 'register' %}">sign up now</a></p>
+				<b>or</b>
+				<p>log in from <a href="{% url 'login' %}">here</a></p>
+
+			</div>
+		{% endif %}
+
+{% endblock %}
+
