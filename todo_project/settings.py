@@ -23,7 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 #SECRET_KEY = 'i%8ix^vn_0j#kbwqux0l^#)ffx-h*!t1h=g5i%dp151-)tgz(&'
 SECRET_KEY = os.environ.get('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = (os.environ.get('DEBUG_VALUE') == "True")
 
 ALLOWED_HOSTS = ['simpledailytodoapp.herokuapp.com', 'localhost']
 
