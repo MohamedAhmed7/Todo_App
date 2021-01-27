@@ -1,7 +1,9 @@
 from django.shortcuts import render, redirect
 from .forms import UserRegisterForm, UserUpdateForm
 from django.contrib import messages
+from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
+from todo.models import Todo
 import os
 # Create your views here.
 def register(request):
@@ -10,7 +12,12 @@ def register(request):
         if form.is_valid():
             form.save()
             username = form.cleaned_data.get('username')
+            not_completed_todo = Todo(text = 'Not completed todo example (click me to mark as done)', user_id = User.objects.filter(username = username).first())
+            completed_todo = Todo(text = 'completed todo example (click me to mark as not completed)', complete = True, user_id = User.objects.filter(username = username).first())
+            completed_todo.save()
+            not_completed_todo.save()
             messages.success(request, f'Account created for {username}!')
+
             return redirect('login')
     else:
         form = UserRegisterForm()

@@ -27,6 +27,12 @@ def completeTodo(request, todo_id):
     todo.save()
     return redirect('index')
 
+def incompleteTodo(request, todo_id):
+    todo = Todo.objects.get(id = todo_id)
+    todo.complete = False
+    todo.save()
+    return redirect('index')
+
 def deleteCompleted(request):
     Todo.objects.filter(complete=True).delete()
     return redirect('index')
