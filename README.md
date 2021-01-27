@@ -10,7 +10,7 @@ The first thing to do is to clone the repository:
 
 ```sh
 $ git clone https://github.com/MohamedAhmed7/Todo_App.git
-$ cd django_project
+$ cd todo_project
 ```
 Create a virtual environment to install dependencies in and activate it:
 
